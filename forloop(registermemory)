@@ -1,0 +1,16 @@
+---------------------------------------
+for ( i = 0 ; i < 15 ; i++ ) {
+  a = a + i ;
+}
+....
+---------------------------------------
+
+R6 = i , R7 = a
+
+addi R6, R0, 0             ; R0 always 0 also ( add R6, R0, R0 )
+addi R1, R0, 15            ; R1 = 15 is needed for i < 15
+
+Loop : beq R6, R1, Exit     ; 
+add R7, R7, R6              ;
+addi R6, R6, 1              ; i++
+j Loop                      ; Goto Loop
